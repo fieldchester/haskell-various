@@ -1,7 +1,7 @@
 -- Simple Method for tail recursion
 -- --------------------------------
 
--- 1) n is not increased, it stays constant as it "goes along".
+-- 1) n is not decremented, it stays constant as it "goes along".
 -- 2) During recursion: Ingore the result at each step.
 -- 3) At the end: Show the result of course.
 
