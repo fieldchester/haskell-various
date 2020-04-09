@@ -1,8 +1,9 @@
+
 -- Simple Method for tail recursion
 -- --------------------------------
 
 -- 1) n is not decremented, it stays constant as it "goes along".
--- 2) During recursion: Ingore the result at each step.
+-- 2) At the steps: Consider only left side of =
 -- 3) At the end: Show the result of course.
 
 -- Fibonachi
@@ -14,14 +15,14 @@
 --     sum 1 2 = 3
 --       sum 2 3 = 5
 
--- Ignore the result
+-- Consider only left side of =
 -- sum 0 1   sum 1 1   sum 1 2   sum 2 3
 
 -- also to beginners@Haskell.org
 fibu n = fibuHelp 0 1 n where
     fibuHelp x y n
-        | y == n = x + y
-        | y > n = error "not af fibunacci nubmer"
+        | y == n =    x + y
+        | y > n =     error "not af fibunacci nubmer"
         | otherwise = fibuHelp y (x + y) n
 
 
@@ -56,12 +57,12 @@ fibu n = fibuHelp 0 1 n where
 --  5                                                                              prod 24*5(=4+1)=120
 --  6                                                                                         prod 120*6(=5+1)=720
 
--- Ignore the result
+-- Consider only left side of =
 --                                      prod 1* (0+1) pr  1*(1+1) p 2*(2+1) p 6*(3+1)
 
 factorial n = factorialHelp 1 0 n where
     factorialHelp x y n
-        | n < 0 =     error "only positive whole numbers"
-        | n == 1 =    1
-        | y == n - 1 =    x * (y + 1)
-        | otherwise = factorialHelp (x * (y + 1)) (y + 1) n
+        | n < 0 =       error "only positive whole numbers"
+        | n == 1 =      1
+        | y == n - 1 =  x * (y + 1)
+        | otherwise =   factorialHelp (x * (y + 1)) (y + 1) n
